@@ -41,6 +41,11 @@ function setup() {
 
 	engine = Engine.create();
 	world = engine.world;
+	
+	//Create a Ground
+	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
+	 World.add(world, ground);
+	 
 
 	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0, isStatic:true});
 	World.add(world, packageBody);
@@ -53,10 +58,7 @@ function setup() {
 
 	rect3 = Bodies.rectangle(310,585,20,100,options);
 	World.add(world,rect3);
-	//Create a Ground
-	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
-	 World.add(world, ground);
-	 
+	
 	
 
 
