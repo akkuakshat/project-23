@@ -16,7 +16,7 @@ function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
 	
-	rect1 = createSprite(400,645,200,20);
+	rect1 = createSprite(400,580,200,20);
 	rect1.shapeColor = "red";
 	rect2 = createSprite(490,585,20,100);
 	rect2.shapeColor = "red";
