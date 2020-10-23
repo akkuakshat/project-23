@@ -15,9 +15,7 @@ function preload()
 function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
-	var options={
-		isStatic: true
-	}
+	
 	rect1 = createSprite(400,645,200,20);
 	rect1.shapeColor = "red";
 	rect2 = createSprite(490,585,20,100);
@@ -50,13 +48,13 @@ function setup() {
 	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0, isStatic:true});
 	World.add(world, packageBody);
 	
-	rect1 = Bodies.rectangle(400,645,200,20,options);
+	rect1 = Bodies.rectangle(400,645,200,20, {isStatic:true});
 	World.add(world, rect1);
 	 
-	rect2 = Bodies.rectangle(490,585,20,100,options);
+	rect2 = Bodies.rectangle(490,585,20,100, {isStatic:true});
 	World.add(world,rect2);
 
-	rect3 = Bodies.rectangle(310,585,20,100,options);
+	rect3 = Bodies.rectangle(310,585,20,100, {isStatic:true});
 	World.add(world,rect3);
 	
 	
