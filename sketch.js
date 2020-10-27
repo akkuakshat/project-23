@@ -5,7 +5,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 var engine, world, bodies;
-var rect1,rec2,rect3;
+var rect1,rec2,rect3,rect1body,rect2body,rect3body;
 function preload()
 {
 	helicopterIMG=loadImage("helicopter.png")
@@ -15,8 +15,10 @@ function preload()
 function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
-	
-	rect1 = createSprite(400,580,200,20);
+	var options={
+		isStatic: true
+	}
+	rect1 = createSprite(400,645,200,20);
 	rect1.shapeColor = "red";
 	rect2 = createSprite(490,585,20,100);
 	rect2.shapeColor = "red";
@@ -39,24 +41,22 @@ function setup() {
 
 	engine = Engine.create();
 	world = engine.world;
-	
-	//Create a Ground
-	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
-	 World.add(world, ground);
-	 
 
 	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0, isStatic:true});
 	World.add(world, packageBody);
 	
-	rect1 = Bodies.rectangle(400,580,200,20, {isStatic:true});
-	World.add(world, rect1);
+	rect1body = Bodies.rectangle(400,635,200,20,options);
+	World.add(world, rect1body);
 	 
-	rect2 = Bodies.rectangle(490,585,20,100, {isStatic:true});
-	World.add(world,rect2);
+	rect2body = Bodies.rectangle(300,610,20,100,options);
+	World.add(world,rect2body);
 
-	rect3 = Bodies.rectangle(310,585,20,100, {isStatic:true});
-	World.add(world,rect3);
-	
+	rect3body = Bodies.rectangle(500,610,20,100,options);
+	World.add(world,rect3body);
+	//Create a Ground
+	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
+	 World.add(world, ground);
+	 
 	
 
 
@@ -81,6 +81,4 @@ function keyPressed() {
     Matter.Body.setStatic(packageBody,false)
   }
 }
-
-
 
